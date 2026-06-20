@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { QuotePage } from './features/quotes/quote-page/quote-page';
+import { RecipePage } from './features/recipes/recipe-page/recipe-page';
 
 export const routes: Routes = [
     {
-        path: '',
-        component: QuotePage,
-    }
+        path: 'recipes',
+        component: RecipePage,
+    },
 ];

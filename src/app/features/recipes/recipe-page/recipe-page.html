@@ -1,0 +1,18 @@
+@if (loading()) {
+    <p>loading</p>
+}
+
+@if (error()) {
+    <p>{{error()}}</p>
+}
+
+@if (!error() && !loading()) {
+    <h1>Recipes Page</h1>
+    <p>Recipe Count {{recipeCount()}}</p>
+    @for (recipe of recipes(); track recipe.id) {
+        <app-recipe-item
+            [recipe] = "recipe"
+            (deleteClicked) = "deleteRecipe($event)"
+        ></app-recipe-item>
+    }
+}
