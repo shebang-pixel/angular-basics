@@ -1,0 +1,17 @@
+@if (loading()) {
+    <p>Loading...</p>
+
+}
+
+@if (error()) {
+    <p>Error finding Quotes,refresh page!</p>
+}
+
+@if (!error() && !loading()) {
+    <h1>Quotes</h1>
+    @for (quote of quotes(); track quote.id) {
+            <app-quote-item
+             [quote]="quote"
+            ></app-quote-item>
+        }
+}
