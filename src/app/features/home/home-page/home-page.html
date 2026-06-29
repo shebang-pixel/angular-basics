@@ -1,61 +1,61 @@
-<section class="hero">
-
-    <h1>Angular Mini Projects</h1>
-
-    <p class="subtitle">
-        A collection of beginner Angular projects built
-        while learning components, signals, forms,
-        routing, services and APIs.
-    </p>
-
-</section>
-
-<section class="projects">
-
-    <div class="project-card">
-        <h3>👥 Users</h3>
-        <p>
-            User directory built with Angular Signals
-            and HTTP Client.
+<main class="dashboard-container">
+    
+    <section class="hero">
+        <h1 class="hero-title">Angular Mini Projects</h1>
+        <p class="subtitle">
+            A collection of beginner Angular projects built
+            while learning components, signals, forms,
+            routing, services and APIs.
         </p>
-    </div>
+    </section>
 
-    <div class="project-card">
-        <h3>🍲 Recipes</h3>
-        <p>
-            Recipe CRUD application using forms,
-            outputs and signals.
-        </p>
-    </div>
+    <section class="projects">
 
-    <div class="project-card">
-        <h3>🛍️ Products</h3>
-        <p>
-            Product listing application consuming
-            REST APIs.
-        </p>
-    </div>
+        <div class="project-card" routerLink="/users">
+            <h3 class="card-title">Users</h3>
+            <p class="card-description">
+                User directory built with Angular Signals
+                and HTTP Client.
+            </p>
+        </div>
 
-    <div class="project-card">
-        <h3>🎬 Movies</h3>
-        <p>
-            Browse movie information from a public API.
-        </p>
-    </div>
+        <div class="project-card" routerLink="/recipes">
+            <h3 class="card-title">Recipes</h3>
+            <p class="card-description">
+                Recipe CRUD application using forms,
+                outputs and signals.
+            </p>
+        </div>
 
-    <div class="project-card">
-        <h3>💬 Quotes</h3>
-        <p>
-            Inspirational quotes fetched from an API.
-        </p>
-    </div>
+        <div class="project-card" routerLink="/products">
+            <h3 class="card-title">Products</h3>
+            <p class="card-description">
+                Product listing application consuming
+                REST APIs.
+            </p>
+        </div>
 
-    <div class="project-card">
-        <h3>🌦️ Weather</h3>
-        <p>
-            Current weather and forecasts using
-            external APIs.
-        </p>
-    </div>
+        <div class="project-card" routerLink="/movies">
+            <h3 class="card-title">Movies</h3>
+            <p class="card-description">
+                Browse movie information from a public API.
+            </p>
+        </div>
 
-</section>
+        <div class="project-card" routerLink="/quotes">
+            <h3 class="card-title">Quotes</h3>
+            <p class="card-description">
+                Inspirational quotes fetched from an API.
+            </p>
+        </div>
+
+        <div class="project-card" routerLink="/weather">
+            <h3 class="card-title">Weather</h3>
+            <p class="card-description">
+                Current weather and forecasts using
+                external APIs.
+            </p>
+        </div>
+
+    </section>
+</main>

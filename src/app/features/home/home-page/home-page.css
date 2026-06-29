@@ -1,64 +1,146 @@
-.hero {
-    text-align: center;
-
-    padding: 4rem 2rem;
+/* =========================================
+  PRODUCTION CORE DESIGN SYSTEM & VARIABLES
+  =========================================
+  Centralizing configuration variables makes the app maintainable and scalable.
+  This theme utilizes an elegant high-contrast, noir-inspired palette.
+*/
+:host {
+    --bg-main: #fafafa;
+    --bg-card: #ffffff;
+    --text-primary: #111111;
+    --text-muted: #666666;
+    --border-color: #e5e5e5;
+    
+    /* Layered shadows for hardware-accelerated modern depth rendering */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+    
+    display: block;
+    min-height: 100vh;
+    background-color: var(--bg-main);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
 }
 
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+/* Base App Wrapper Layout */
+.dashboard-container {
+    padding: 0 1.5rem 4rem 1.5rem;
+}
+
+/* =========================================
+  HERO HEADER COMPONENT
+  =========================================
+*/
+.hero {
+    text-align: center;
+    padding: 6rem 1rem 4rem 1rem;
+}
+
+/* Typographic enhancements using tracking and explicit line-height rules */
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+    color: var(--text-primary);
 }
 
 .subtitle {
-    max-width: 700px;
-
+    max-width: 640px;
     margin: 0 auto;
-
-    font-size: 1.1rem;
-
-    opacity: .8;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    font-weight: 400;
 }
 
+/* =========================================
+  GRID WRAPPER COMPONENT
+  =========================================
+*/
 .projects {
-    max-width: 1200px;
-
+    max-width: 1140px;
     margin: 0 auto;
-
-    padding: 2rem;
-
     display: grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(280px, 1fr)
-        );
-
-    gap: 1.5rem;
+    /* Clean fallback handling for auto-fit generation layers */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
 }
 
+/* =========================================
+  PROJECT CARD MODULE
+  =========================================
+*/
 .project-card {
-    padding: 1.5rem;
-
-    border-radius: 12px;
-
-    background: white;
-
-    box-shadow:
-        0 2px 8px rgba(0, 0, 0, .08);
-
-    transition:
-        transform .2s ease,
-        box-shadow .2s ease;
+    position: relative;
+    padding: 2.25rem 2rem;
+    border-radius: 16px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    /* Enforces GPU acceleration for completely smooth transition states */
+    will-change: transform, box-shadow, border-color;
+    transition: 
+        transform 0.4s var(--transition-smooth), 
+        box-shadow 0.4s var(--transition-smooth), 
+        border-color 0.4s var(--transition-smooth);
 }
 
+/* Production-grade card focus state actions */
 .project-card:hover {
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 8px 20px rgba(0, 0, 0, .12);
+    transform: translateY(-6px);
+    border-color: #111111;
+    box-shadow: var(--shadow-lg);
 }
 
-.project-card h3 {
+.project-card:active {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Card Elements Typography styling */
+.card-title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
     margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.card-description {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+    color: var(--text-muted);
+}
+
+/* =========================================
+  RESPONSIVE BREAKPOINTS (MEDIA QUERIES)
+  =========================================
+  Modifying layouts across small form factors smoothly.
+*/
+@media (max-width: 768px) {
+    .hero {
+        padding: 4rem 1rem 2.5rem 1rem;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .projects {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
 }
