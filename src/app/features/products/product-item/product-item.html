@@ -1,33 +1,35 @@
 <div class="product-card">
+    
     <div class="product-header">
         <span class="product-id">#{{ product().id }}</span>
-        <span class="category">{{ product().category }}</span>
+        <span class="category-badge">{{ product().category }}</span>
     </div>
 
-    <h2>{{ product().title }}</h2>
+    <div class="product-content">
+        <h3 class="product-title">{{ product().title }}</h3>
+        <p class="description">
+            {{ product().description }}
+        </p>
+    </div>
 
-    <p class="description">
-        {{ product().description }}
-    </p>
-
-    <div class="details">
-        <div>
-            <span class="label">Brand</span>
-            <span>{{ product().brand }}</span>
+    <div class="details-matrix">
+        <div class="matrix-node">
+            <span class="matrix-label">Brand</span>
+            <span class="matrix-value">{{ product().brand }}</span>
         </div>
 
-        <div>
-            <span class="label">Price</span>
-            <span class="price">${{ product().price }}</span>
+        <div class="matrix-node">
+            <span class="matrix-label">Price</span>
+            <span class="matrix-value price-style">${{ product().price }}</span>
         </div>
 
-        <div>
-            <span class="label">Stock</span>
-            <span>{{ product().stock }}</span>
+        <div class="matrix-node">
+            <span class="matrix-label">Stock</span>
+            <span class="matrix-value">{{ product().stock }}</span>
         </div>
     </div>
 
-    <button class="delete-btn" >
-        Delete
+    <button class="delete-btn" type="button">
+        Delete Product
     </button>
 </div>

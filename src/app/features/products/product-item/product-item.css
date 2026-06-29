@@ -1,17 +1,28 @@
+/* =========================================
+  PRODUCT ITEM COMPONENT MODULE
+  =========================================
+*/
 .product-card {
-    background: white;
-    border-radius: 18px;
-    padding: 1.5rem;
-    box-shadow: 0 8px 20px rgba(0,0,0,.08);
-    transition: .25s;
+    background: var(--surface-card, #ffffff);
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
+    padding: 2.25rem 2rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.75rem;
+    will-change: transform, box-shadow, border-color;
+    transition: 
+        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Micro interaction elevations on card context boundaries */
 .product-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(0,0,0,.12);
+    border-color: #111111;
+    box-shadow: 0 20px 32px rgba(0, 0, 0, 0.06);
 }
 
 .product-header {
@@ -21,61 +32,113 @@
 }
 
 .product-id {
-    color: #888;
-    font-size: .9rem;
+    color: #999999;
+    font-size: 0.85rem;
+    font-weight: 500;
+    font-family: monospace;
 }
 
-.category {
-    background: #eef5ff;
-    color: #2563eb;
-    padding: .35rem .8rem;
-    border-radius: 20px;
-    font-size: .8rem;
+/* Reconfigured standard category item to fit noir layout design rules */
+.category-badge {
+    background: #111111;
+    color: #ffffff;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
-.product-card h2 {
+.product-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.product-title {
     margin: 0;
     font-size: 1.35rem;
-    color: #222;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #111111;
+    line-height: 1.25;
 }
 
 .description {
-    color: #666;
+    color: #555555;
+    font-size: 0.95rem;
     line-height: 1.6;
+    margin: 0;
 }
 
-.details {
+/* =========================================
+  ATTRIBUTE DATA MATRIX GRID
+  =========================================
+*/
+.details-matrix {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 1.25rem 0;
 }
 
-.label {
-    display: block;
-    font-size: .8rem;
-    color: #888;
-    margin-bottom: .25rem;
+.matrix-node {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
 }
 
-.price {
-    color: #16a34a;
-    font-weight: bold;
-    font-size: 1.1rem;
+.matrix-label {
+    font-size: 0.75rem;
+    color: #888888;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
 }
 
+.matrix-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #222222;
+}
+
+/* Stark contrast highlight styling for numeric price nodes */
+.price-style {
+    color: #111111;
+    font-weight: 700;
+}
+
+/* =========================================
+  INTERACTION BUTTON LINK ELEMENT
+  =========================================
+*/
 .delete-btn {
     margin-top: auto;
-    padding: .8rem;
-    border: none;
-    border-radius: 10px;
+    padding: 0.85rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
     cursor: pointer;
-    background: #ef4444;
-    color: white;
+    background: transparent;
+    color: #666666;
     font-weight: 600;
-    transition: .2s;
+    font-size: 0.9rem;
+    will-change: background-color, color, border-color;
+    transition: 
+        background-color 0.2s ease, 
+        color 0.2s ease, 
+        border-color 0.2s ease;
 }
 
+/* Strict destruction state conversion triggers on context focus values */
 .delete-btn:hover {
-    background: #dc2626;
+    background-color: #fff5f5;
+    color: #dc2626;
+    border-color: #fca5a5;
+}
+
+.delete-btn:active {
+    background-color: #fee2e2;
 }

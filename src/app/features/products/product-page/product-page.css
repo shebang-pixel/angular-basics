@@ -1,90 +1,203 @@
+/* =========================================
+  PRODUCTION VARIABLE TOKEN ARCHITECTURE
+  =========================================
+*/
+:host {
+    --surface-bg: #fafafa;
+    --surface-card: #ffffff;
+    --text-main: #111111;
+    --text-secondary: #666666;
+    --border-subtle: #e5e5e5;
+    
+    /* Hardware accelerated multi-layered depth values */
+    --elevation-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --elevation-md: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --elevation-lg: 0 20px 32px rgba(0, 0, 0, 0.08);
+    
+    --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+    display: block;
+    background-color: var(--surface-bg);
+}
+
+/* Base Page Viewport Alignment */
 .page {
     max-width: 1400px;
-    margin: auto;
-    padding: 2rem;
+    margin: 0 auto;
+    padding: 3rem 2rem;
 }
 
+/* =========================================
+  HERO HEADER COMPONENT
+  =========================================
+*/
 .hero {
-    background: linear-gradient(135deg,#2563eb,#1e40af);
-    color: white;
-    border-radius: 24px;
-    padding: 3rem;
-    margin-bottom: 3rem;
+    /* High-contrast solid design with explicit border bounds */
+    background: #111111;
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 4rem;
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
 }
 
-.hero h1 {
+.hero-title {
     margin: 0;
-    font-size: 3rem;
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
 }
 
-.hero p {
+.hero-subtitle {
     margin-top: 1rem;
-    font-size: 1.1rem;
-    opacity: .9;
+    margin-bottom: 0;
+    font-size: 1.2rem;
+    color: #a3a3a3;
+    max-width: 500px;
+    line-height: 1.6;
 }
 
+/* Dynamic Flex Box Handling for Dashboard Statistics */
 .hero-stats {
     display: flex;
     gap: 1.5rem;
-    margin-top: 2rem;
     flex-wrap: wrap;
 }
 
 .stat-card {
-    background: rgba(255,255,255,.15);
-    backdrop-filter: blur(10px);
-    padding: 1.25rem 2rem;
-    border-radius: 16px;
-    min-width: 150px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    padding: 1.5rem 2.5rem;
+    border-radius: 14px;
+    flex: 1;
+    min-width: 180px;
 }
 
-.stat-card h2 {
+.stat-number {
     margin: 0;
-    font-size: 2rem;
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
-.stat-card span {
-    opacity: .8;
+.stat-label {
+    font-size: 0.9rem;
+    color: #a3a3a3;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
 }
 
+/* =========================================
+  FORM INTERFACE WRAPPER
+  =========================================
+*/
 .add-product {
-    background: #fafafa;
-    padding: 2rem;
+    background: var(--surface-card);
+    padding: 3rem;
     border-radius: 20px;
-    margin-bottom: 3rem;
-    box-shadow: 0 4px 18px rgba(0,0,0,.08);
+    margin-bottom: 4rem;
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--elevation-sm);
 }
 
-.add-product h2 {
+.section-title {
     margin-top: 0;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--text-main);
 }
 
+/* =========================================
+  CATALOG OVERVIEW MODULE
+  =========================================
+*/
 .catalog-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
+    align-items: flex-end;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 1.25rem;
 }
 
-.catalog-header h2 {
-    margin: 0;
+.catalog-header .section-title {
+    margin-bottom: 0;
 }
 
-.catalog-header span {
-    color: #777;
+.catalog-meta {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
 }
 
+/* Optimized CSS Grid Layout Structure */
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(340px,1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2rem;
 }
 
+/* =========================================
+  STATE APP INDICATOR ASSETS
+  =========================================
+*/
 .spinner-container,
 .error-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 300px;
+    min-height: 400px;
+}
+
+.loading-state {
+    text-align: center;
+}
+
+.spinner-ring {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--border-subtle);
+    border-top-color: var(--text-main);
+    border-radius: 50%;
+    margin: 0 auto 1rem auto;
+    animation: rotateState 0.8s linear infinite;
+}
+
+.spinner-text {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.error-card {
+    background: #fff5f5;
+    border: 1px solid #fecaca;
+    padding: 1.5rem 2.5rem;
+    border-radius: 12px;
+}
+
+.error-text {
+    margin: 0;
+    color: #dc2626;
+    font-weight: 500;
+}
+
+@keyframes rotateState {
+    to { transform: rotate(360deg); }
+}
+
+/* Mobile Layout Adaptation Overrides */
+@media (max-width: 768px) {
+    .page { padding: 1.5rem 1rem; }
+    .hero { padding: 2.5rem 2rem; gap: 2rem; }
+    .hero-title { font-size: 2.5rem; }
+    .add-product { padding: 2rem 1.5rem; }
+    .catalog-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
 }
