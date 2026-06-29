@@ -1,12 +1,3 @@
-# Writing the markdown content to a file without any emojis
-markdown_content = """# Angular Basics
-
-Welcome to angular-basics! This repository is a collection of fundamental Angular applications and components designed to demonstrate core framework concepts, UI layouts, and data handling. 
-
-From managing daily tasks to checking the weather, this project serves as a practical sandbox for mastering Angular.
-
----
-
 ## Features and Modules
 
 The project is structured into several standalone modules or components, each focusing on different features:
