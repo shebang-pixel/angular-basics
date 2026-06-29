@@ -1,4 +1,4 @@
-""" Angular Basics
+### Angular Basics
 
 Welcome to angular-basics! This repository is a collection of fundamental Angular applications and components designed to demonstrate core framework concepts, UI layouts, and data handling. 
 
