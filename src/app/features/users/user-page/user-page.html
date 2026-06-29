@@ -1,1 +1,38 @@
-<p>user-page works!</p>
+@if (loading()) {
+    <div class="state-card">
+        <div class="spinner"></div>
+    </div>
+}
+
+@if (error()) {
+    <div class="state-card error">
+        <p>{{ error() }}</p>
+    </div>
+}
+
+@if (!loading() && !error()) {
+
+    <section class="page-container">
+        <app-users-form 
+        (userAdded)="onUserAdded($event)">
+    </app-users-form>
+
+        <header class="page-header">
+            <h1>Users Directory</h1>
+            <p>{{ userCount() }} users found</p>
+        </header>
+
+        <section class="users-grid">
+
+            @for (user of users(); track user.id) {
+                <app-user-card
+                    [user]="user"> //output
+                    (userAdded)="onUserAdded($event)" //input
+                </app-user-card>
+            }
+
+        </section>
+
+    </section>
+
+}

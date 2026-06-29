@@ -1,0 +1,43 @@
+<div class="user-card">
+
+    <div class="user-header">
+        <div class="avatar">
+            {{ user().name.charAt(0) }}
+        </div>
+
+        <div>
+            <h3>{{ user().name }}</h3>
+            <p class="username">@{{ user().username }}</p>
+        </div>
+    </div>
+
+    <div class="user-details">
+
+        <div class="detail">
+            <span class="label">📧 Email</span>
+            <span>{{ user().email }}</span>
+        </div>
+
+        <div class="detail">
+            <span class="label">📞 Phone</span>
+            <span>{{ user().phone }}</span>
+        </div>
+
+        <div class="detail">
+            <span class="label">🌍 Website</span>
+            <span>{{ user().website }}</span>
+        </div>
+
+        <div class="detail">
+            <span class="label">🏢 Company</span>
+            <span>{{ user().company }}</span>
+        </div>
+
+        <div class="detail">
+            <span class="label">📍 City</span>
+            <span>{{ user().address?.city }}</span>
+        </div>
+
+    </div>
+
+</div>

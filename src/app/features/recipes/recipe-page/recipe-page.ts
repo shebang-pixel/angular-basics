@@ -1,12 +1,13 @@
 import { Component, computed, inject, signal } from '@angular/core';
-import { Recipe } from '../../recipe.model';
-import { RecipeService } from '../../../core/services/recipe-service';
+import { Recipe } from '../../../core/models/recipe.model';
+import { RecipeService } from '../../../core/services/recipe-service/recipe-service';
 import { RecipeItem } from '../recipe-item/recipe-item';
+import { RecipeForn } from '../recipe-forn/recipe-forn';
 
 @Component({
   standalone: true,
   selector: 'app-recipe-page',
-  imports: [RecipeItem],
+  imports: [RecipeItem, RecipeForn],
   templateUrl: './recipe-page.html',
   styleUrl: './recipe-page.css',
 })
@@ -30,7 +31,7 @@ export class RecipePage {
           this.loading.set(false);
         },
         error: err => {
-          this.error.set(err);
+          this.error.set("Failed to load Recipes.Check your internet Connection.");
           this.loading.set(false);
         }
       })
@@ -43,5 +44,14 @@ export class RecipePage {
       )
     )
     console.log(`Remove recipe number ${id}`)
+  }
+
+  onRecipeAdded(title: string) {
+    this.recipes.update(recipes => [
+      ...recipes,
+      {
+        name: title,
+      }
+    ])
   }
 }

@@ -1,1 +1,32 @@
-<p>quote-page works!</p>
+@if (loading()) {
+    <div class="spinner-container">
+        <p class="spinner">Loading</p>
+    </div>
+}
+
+@if (error()) {
+    <div class="error-container">
+        <p class="error">{{ error() }}</p>
+    </div>
+}
+
+@if (!loading() && !error()) {
+
+    <div class="quoteForm">
+        <app-quote-form 
+            [quoteCount]="quoteCount()"
+            (quoteAdded)="onQuoteAdded($event)">
+        </app-quote-form>
+    </div>
+
+    <h1>Quotes</h1>
+
+<div class="quote-grid">
+    @for (quote of quotes(); track quote.id) {
+        <app-quote-item
+            [quote]="quote"
+            (deleteClicked)="onDeleteQuote($event)">
+        </app-quote-item>
+    }
+</div>
+}

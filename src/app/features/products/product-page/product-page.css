@@ -1,0 +1,90 @@
+.page {
+    max-width: 1400px;
+    margin: auto;
+    padding: 2rem;
+}
+
+.hero {
+    background: linear-gradient(135deg,#2563eb,#1e40af);
+    color: white;
+    border-radius: 24px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: 3rem;
+}
+
+.hero p {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    opacity: .9;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    background: rgba(255,255,255,.15);
+    backdrop-filter: blur(10px);
+    padding: 1.25rem 2rem;
+    border-radius: 16px;
+    min-width: 150px;
+}
+
+.stat-card h2 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.stat-card span {
+    opacity: .8;
+}
+
+.add-product {
+    background: #fafafa;
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 18px rgba(0,0,0,.08);
+}
+
+.add-product h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.catalog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.catalog-header h2 {
+    margin: 0;
+}
+
+.catalog-header span {
+    color: #777;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(340px,1fr));
+    gap: 1.5rem;
+}
+
+.spinner-container,
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+}

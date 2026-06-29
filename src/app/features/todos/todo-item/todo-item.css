@@ -1,0 +1,79 @@
+/* Container Card Styles */
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  max-width: 500px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+  
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Card Hover effect */
+.todo-item:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
+}
+
+/* Title Styling */
+.todo-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1e293b;
+  flex-grow: 1;
+  line-height: 1.5;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+/* Completed Status Badge Styling */
+.todo- {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* Dynamic styling matching Angular's output string */
+.todo-:has(text:contains('true')), 
+.todo-:not(:empty) {
+  /* Default styling assuming standard true/false evaluation */
+  background-color: #f1f5f9;
+  color: #64748b;
+}
+
+/* Modern Minimalist Delete Button */
+.delete-todo {
+  background-color: transparent;
+  color: #ef4444;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.delete-todo:hover {
+  background-color: #fef2f2;
+  border-color: #fee2e2;
+}
+
+.delete-todo:focus-visible {
+  outline: 2px solid #ef4444;
+  outline-offset: 2px;
+}

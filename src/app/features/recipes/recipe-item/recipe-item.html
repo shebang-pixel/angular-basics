@@ -1,4 +1,41 @@
-<div>
-    <p>{{recipe().name}}</p>
-    <button (click)="onDelete()">Delete</button>
+<div class="recipe-card">
+    <img
+        class="recipe-image"
+        [src]="recipe().image"
+        [alt]="recipe().name">
+
+    <div class="recipe-content">
+
+        <div class="recipe-header">
+            <h3>{{ recipe().name }}</h3>
+
+            <button
+                class="delete-btn"
+                (click)="onDelete()">
+                Delete
+            </button>
+        </div>
+
+        <div class="recipe-meta">
+            <span>{{ recipe().cuisine }}</span>
+            <span>{{ recipe().difficulty }}</span>
+        </div>
+
+        <div class="recipe-stats">
+            <span>⏱ Prep: {{ recipe().prepTimeMinutes }} min</span>
+            <span>🔥 Cook: {{ recipe().cookTimeMinutes }} min</span>
+            <span>🍽 {{ recipe().servings }} servings</span>
+        </div>
+
+        <div class="recipe-rating">
+            ⭐ {{ recipe().rating }}
+        </div>
+
+        <div class="recipe-tags">
+            @for(tag of recipe().tags; track tag) {
+                <span class="tag">{{ tag }}</span>
+            }
+        </div>
+
+    </div>
 </div>

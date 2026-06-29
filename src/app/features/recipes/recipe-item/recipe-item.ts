@@ -1,5 +1,5 @@
 import { Component, input, output } from '@angular/core';
-import { Recipe } from '../../recipe.model';
+import { Recipe } from '../../../core/models/recipe.model';
 
 @Component({
   selector: 'app-recipe-item',
@@ -13,6 +13,6 @@ export class RecipeItem {
   deleteClicked = output<number>();
   // emit clicked item
   onDelete() {
-    this.deleteClicked.emit(this.recipe().id);
+    this.deleteClicked.emit(this.recipe().id!);
   }
 }

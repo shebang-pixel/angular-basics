@@ -1,0 +1,21 @@
+.quote-form {
+    display: flex;
+    flex-direction: column;
+    margin: 4px;
+    padding: 4px;
+    height: auto;
+}
+
+input {
+    width: 150px;
+    height: 40px;
+}
+
+button {
+    width: 80px;
+    height: auto;
+    background: #d52323;
+    padding: 4px;
+    margin: 4px;
+
+}

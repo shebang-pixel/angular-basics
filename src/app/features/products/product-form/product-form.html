@@ -1,0 +1,70 @@
+<form
+    class="product-form"
+    [formGroup]="productForm"
+    (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <label for="title">Product Name</label>
+        <input
+            id="title"
+            type="text"
+            formControlName="title"
+            placeholder="Wireless Mouse">
+    </div>
+
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+            id="description"
+            rows="4"
+            formControlName="description"
+            placeholder="Short description"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="category">Category</label>
+        <input
+            id="category"
+            type="text"
+            formControlName="category"
+            placeholder="Electronics">
+    </div>
+
+    <div class="form-group">
+        <label for="brand">Brand</label>
+        <input
+            id="brand"
+            type="text"
+            formControlName="brand"
+            placeholder="Logitech">
+    </div>
+
+    <div class="two-columns">
+
+        <div class="form-group">
+            <label for="price">Price ($)</label>
+            <input
+                id="price"
+                type="number"
+                formControlName="price"
+                placeholder="49.99">
+        </div>
+
+        <div class="form-group">
+            <label for="stock">Stock</label>
+            <input
+                id="stock"
+                type="number"
+                formControlName="stock"
+                placeholder="150">
+        </div>
+
+    </div>
+
+    <button
+        type="submit"
+        [disabled]="productForm.invalid">
+        Add Product
+    </button>
+
+</form>

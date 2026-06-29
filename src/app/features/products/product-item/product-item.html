@@ -1,0 +1,33 @@
+<div class="product-card">
+    <div class="product-header">
+        <span class="product-id">#{{ product().id }}</span>
+        <span class="category">{{ product().category }}</span>
+    </div>
+
+    <h2>{{ product().title }}</h2>
+
+    <p class="description">
+        {{ product().description }}
+    </p>
+
+    <div class="details">
+        <div>
+            <span class="label">Brand</span>
+            <span>{{ product().brand }}</span>
+        </div>
+
+        <div>
+            <span class="label">Price</span>
+            <span class="price">${{ product().price }}</span>
+        </div>
+
+        <div>
+            <span class="label">Stock</span>
+            <span>{{ product().stock }}</span>
+        </div>
+    </div>
+
+    <button class="delete-btn" >
+        Delete
+    </button>
+</div>

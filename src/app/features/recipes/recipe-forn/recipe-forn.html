@@ -1,0 +1,31 @@
+<form
+    class="recipe-form"
+    [formGroup]="recipeForm"
+    (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <label for="title">Recipe Name</label>
+
+        <input
+            id="title"
+            type="text" 
+            formControlName="title"
+            placeholder="Enter recipe name">
+    </div>
+
+    @if (
+        recipeForm.get('title')?.invalid &&
+        recipeForm.get('title')?.touched
+    ) {
+        <small class="error-text">
+            Recipe name must be at least 3 characters
+        </small>
+    }
+
+    <button
+        type="submit"
+        [disabled]="recipeForm.invalid">
+        Add Recipe
+    </button>
+
+</form>

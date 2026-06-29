@@ -1,0 +1,8 @@
+<form class="quote-form" [formGroup]="quoteForm" (ngSubmit)="onSubmit()">
+    <label for="quote">Quote</label>
+    <input class="quote" formControlName="quote" placeholder="Quote">
+
+    <label for="author">Author</label>
+    <input class="author" formControlName="author" placeholder="Author">
+    <button type="submit" [disabled]="quoteForm.invalid">Add Quote</button>
+</form>

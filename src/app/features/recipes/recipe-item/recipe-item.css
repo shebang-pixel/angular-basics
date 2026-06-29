@@ -1,0 +1,95 @@
+.recipe-card {
+    display: flex;
+    gap: 1rem;
+
+    padding: 1rem;
+
+    border: 1px solid #ddd;
+    border-radius: 12px;
+
+    background: white;
+
+    margin-bottom: 1rem;
+
+    box-shadow: 0 2px 6px rgba(0,0,0,.08);
+}
+
+.recipe-image {
+    width: 140px;
+    height: 140px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    flex-shrink: 0;
+}
+
+.recipe-content {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+}
+
+.recipe-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.recipe-header h3 {
+    margin: 0;
+}
+
+.recipe-meta {
+    display: flex;
+    gap: 1rem;
+
+    font-size: .9rem;
+    color: #666;
+}
+
+.recipe-stats {
+    display: flex;
+    gap: 1rem;
+
+    flex-wrap: wrap;
+
+    font-size: .9rem;
+}
+
+.recipe-rating {
+    font-weight: bold;
+}
+
+.recipe-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.tag {
+    padding: .25rem .6rem;
+
+    border-radius: 999px;
+
+    background: #f2f2f2;
+
+    font-size: .8rem;
+}
+
+.delete-btn {
+    border: none;
+
+    padding: .5rem .75rem;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    opacity: .85;
+}

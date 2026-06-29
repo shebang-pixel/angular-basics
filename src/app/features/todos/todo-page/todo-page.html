@@ -1,1 +1,16 @@
-<p>todo-page works!</p>
+@if (loading()) {
+    <p>Loading..</p>
+}
+
+@if(error()) {
+    <p>{{error()}}</p>
+}
+
+@if(!error() && !loading()) {
+    @for(todo of todos(); track todo.id) {
+        <app-todo-item
+            [todo]="todo"
+            (deleteClicked)="deleteTodo($event)"
+        ></app-todo-item>
+    }
+}

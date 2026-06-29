@@ -1,1 +1,81 @@
-<p>product-page works!</p>
+@if (loading()) {
+    <div class="spinner-container">
+        <p class="spinner">Loading...</p>
+    </div>
+}
+
+@if (error()) {
+    <div class="error-container">
+        <p class="error">{{ error() }}</p>
+    </div>
+}
+
+@if (!loading() && !error()) {
+
+    <section class="hero">
+
+        <div>
+            <h1>🛍️ Pixel Store</h1>
+            <p>
+                Discover quality products at unbeatable prices.
+            </p>
+        </div>
+
+        <div class="hero-stats">
+
+            <div class="stat-card">
+                <h2>{{ productCount() }}</h2>
+                <span>Products</span>
+            </div>
+
+            <div class="stat-card">
+                <h2>24/7</h2>
+                <span>Support</span>
+            </div>
+
+            <div class="stat-card">
+                <h2>Free</h2>
+                <span>Shipping</span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="add-product">
+
+        <h2>Add New Product</h2>
+
+        <app-product-form
+            [productCount]="productCount()"
+            (addProduct)="onProductAdd($event)">
+        </app-product-form>
+
+    </section>
+
+    <section class="catalog">
+
+        <div class="catalog-header">
+
+            <h2>Featured Products</h2>
+
+            <span>{{ productCount() }} items available</span>
+
+        </div>
+
+        <div class="products-grid">
+
+            @for (product of products(); track product.id) {
+
+                <app-product-item
+                    [product]="product"
+                    >
+                </app-product-item>
+
+            }
+
+        </div>
+
+    </section>
+
+}

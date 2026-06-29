@@ -1,0 +1,64 @@
+.hero {
+    text-align: center;
+
+    padding: 4rem 2rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    font-size: 1.1rem;
+
+    opacity: .8;
+}
+
+.projects {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 2rem;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(280px, 1fr)
+        );
+
+    gap: 1.5rem;
+}
+
+.project-card {
+    padding: 1.5rem;
+
+    border-radius: 12px;
+
+    background: white;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, .08);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, .12);
+}
+
+.project-card h3 {
+    margin-top: 0;
+}
